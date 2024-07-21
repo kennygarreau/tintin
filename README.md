@@ -39,7 +39,7 @@ Ideally, these converge and we gain a single source of truth.
 
 The current (July 2024) integration will allow you to run a piece of Python code that will convert and format a CSV properly for usage by the #SCAN CSV LINE functionality in TinTin.
 
-In-game, formatting is critical to getting a proper match. If a match is not found, it will simply return a blank line.<br>
+In-game, formatting is critical to getting a proper match. If a match is not found, it will prompt you to cast identify on it or remind you of the syntax, which REQUIRES quotations surrounding the item!<br>
 Syntax:<br>
 id "name of object"
 
