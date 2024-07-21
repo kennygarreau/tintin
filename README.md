@@ -37,7 +37,17 @@ The doc is a holdover from Empire days I believe, so there are definitely items 
 
 Ideally, these converge and we gain a single source of truth.
 
+### Setting up the integration
+
 The current (July 2024) integration will allow you to run a piece of Python code that will convert and format a CSV properly for usage by the #SCAN CSV LINE functionality in TinTin.
+
+1. Download the eqlist in Microsoft Excel format: File - Download - Microsoft Excel (.xlsx)
+2. Move the file into your tintin directory (you DO have a dedicated directory for tintin don't you?)
+3. python3 xlstocsv.py - this will setup the csv for reading by TinTin
+
+That's it!
+
+### Use in-game
 
 In-game, formatting is critical to getting a proper match. If a match is not found, it will prompt you to cast identify on it or remind you of the syntax, which REQUIRES quotations surrounding the item!<br>
 Syntax:<br>
