@@ -43,7 +43,9 @@ Grants:         <br>
 Location:       Soul Asylum\, soul of a high priest<br>
 Other:          vorpal
 
-You'll notice the un-escaped commas, which are difficult to deal with in a comma-separated file. Right now it's a minor nuisance so I'll get around to optimizing in the future (see TODO).
+In-game, this is formatted with tabular spacing, markdown doesn't do a great job here :) 
+
+You'll also notice the un-escaped commas, which are difficult to deal with in a comma-separated file. Right now it's a minor nuisance so I'll get around to optimizing in the future (see TODO). 
 
 ### TODO:
 1. Group / room report
