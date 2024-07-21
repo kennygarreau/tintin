@@ -38,7 +38,7 @@
     #variable lastid %1;
 }
 #alias {load_id} {#scan {csv} {eqlist.csv}}
-#alias {id} {#var {idtarg} {%0};#scan {csv} {eqlist.csv}}
+#alias {id} {#var {idtarg} {%0};#scan {csv} {eqlist.csv};#if {$found_match == 1} {#showme Found a match!};#else #showme No match found\; ensure you are using quotes! syntax: id "name of item"}
 #alias {id_header} {#show Item:\t\t$id_name;#show Type:\t\t$id_type;}
 #alias {id_footer} {#show Affects:\t$id_affects;#show Grants:\t\t$id_adds;#show Location:\t$id_location;#show Other:\t\t$id_other;#show {}}
 #alias {report_id} {
@@ -51,7 +51,7 @@
         #default {id_header;#show Armor:\t\t$id_armorclass;id_footer}}
 }
 #substitute {nan$} {} {1}
-#action {^You try to tell yourself something.} {report_id} {5}
+#action {^You try to tell yourself something.} {report_id;#unvar {found_match}} {5}
 #gag {^You try to tell yourself something.$}
 
 #nop tracker for "forgotten" spells in combat
