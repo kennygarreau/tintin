@@ -10,8 +10,9 @@ These scripts are what I use on TinTin v 2.02.41. Some quick highlights and feat
 6. Tank prompts for major spells: Sanctuary, Blink, Stoneskin - should probably add more? (the default in-game prompts are a bit too simple for me)
 7. Custom prompt for mages with a Mirror Image counter
 8. Scroll and Potion cooldown timers (staves might not be possible)
-9. Auto-remem
-10. Eqlist integration 
+9. Component counters (currently implemented for portal)
+10. Auto-remem
+11. Eqlist integration 
 
 ## Files
 
