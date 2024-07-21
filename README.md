@@ -31,7 +31,7 @@ You can access the list of spells anytime with #var forgotten_spells. Spells wit
 
 ## Eqlist integration
 
-On Google Drive there is an eqlist in Sheets (Excel) which is formatted by tab with each item slot/type - light, finger, wand, shield, etc. Some of you have access, many of you may not. It is a publicly-accessible document therefore I am not going to link it here, so if you need this, find me in-game, email me (see below), @me on Facebook group or Discord. 
+On Google Drive there is an eqlist in Sheets (Excel) which is formatted by tab with each item slot/type - light, finger, wand, shield, etc. Some of you have access, many of you may not. It is a publicly-writeable document therefore I am not going to link it here. If you need this, find me in-game, email me (see below), @me on Facebook group or Discord!
 
 The doc is a holdover from Empire days I believe, so there are definitely items in the list that don't exist anymore (Tar Valon is one that comes to mind) but I've left them there for posterity and in case an Imm ever gets the itch to re-create from memory. Where I've taken an interest (hey, I need an upgrade in slot X), I've ported some IDs from the impeq.rtf that is also floating around. 
 
