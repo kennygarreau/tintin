@@ -43,7 +43,7 @@ The current (July 2024) integration will allow you to run a piece of Python code
 
 1. Download the eqlist in Microsoft Excel format: File - Download - Microsoft Excel (.xlsx)
 2. Move the file into your tintin directory (you DO have a dedicated directory for tintin don't you?)
-3. python3 xlstocsv.py - this will setup the csv for reading by TinTin
+3. python3 xlstocsv.py - this will setup eqlist.csv for reading by TinTin
 
 That's it!
 
