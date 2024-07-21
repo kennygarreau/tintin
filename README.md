@@ -13,6 +13,15 @@ These scripts are what I use on TinTin v 2.02.41. Some quick highlights and feat
 9. Auto-remem
 10. Eqlist integration 
 
+## Files
+
+Most of the cool stuff is in common.tt
+
+fr.tt (barb) has auto-track and an assess script<br>
+locke.tt (mage) has the mirror-image and "tank" buff prompt tracker<br>
+memgear.tt (spellcasters) has common subs to add [INT] and [WIS] to the item's description<br>
+helt.tt (cleric) has a nexus gem/klein bottle counter, and will select the larger quantity for use with the portal spell
+
 ## Auto-remem
 
 If you are a spellcaster and you run separate "mem" and "fighting" sets, the auto-remem functionality will track forgotten spells in combat ("you are not wise enough to remember X") and add them to a list. The next time you rest, you will be prompted for what spells you need to memorize that you have forgotten. Once you put your memset on, you'll be able to type "remem" and it will automatically re-memorize those spells.
