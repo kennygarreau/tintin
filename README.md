@@ -70,10 +70,10 @@ As always reach out to me if you have any questions on how things work, want to 
 
 ## Squad
 
-Helt (cleric)
-Feydrautha (barb)
-Locke (mage)
-Petra (thief)
-Amergin (druid)
+Helt (cleric)<br>
+Feydrautha (barb)<br>
+Locke (mage)<br>
+Petra (thief)<br>
+Amergin (druid)<br>
 
 [kgarreau@gmail.com](mailto:kgarreau@gmail.com)
