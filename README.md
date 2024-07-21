@@ -21,22 +21,26 @@ You can access the list of spells anytime with #var forgotten_spells. Spells wit
 
 ## Eqlist integration
 
-On Google Drive there is an eqlist in Sheets (Excel) which is formatted by tab with each item slot/type - light, finger, wand, shield, etc. Some of you have access, many of you may not. It is a publicly-accessible document therefore I am not going to link it here, so if you need this, find me in-game, email me (see below), @me on Facebook group or Discord. This is a holdover from Empire days I believe, so there are definitely items in the list that don't exist anymore (Tar Valon is one that comes to mind) but I've left them there for posterity and in case an Imm ever gets the itch to re-create from memory. Where I've taken an interest (hey, I need an upgrade in slot X), I've ported some IDs from the impeq.rtf that is also floating around. Ideally, these converge and we gain a single source of truth.
+On Google Drive there is an eqlist in Sheets (Excel) which is formatted by tab with each item slot/type - light, finger, wand, shield, etc. Some of you have access, many of you may not. It is a publicly-accessible document therefore I am not going to link it here, so if you need this, find me in-game, email me (see below), @me on Facebook group or Discord. 
+
+The doc is a holdover from Empire days I believe, so there are definitely items in the list that don't exist anymore (Tar Valon is one that comes to mind) but I've left them there for posterity and in case an Imm ever gets the itch to re-create from memory. Where I've taken an interest (hey, I need an upgrade in slot X), I've ported some IDs from the impeq.rtf that is also floating around. 
+
+Ideally, these converge and we gain a single source of truth.
 
 The current (July 2024) integration will allow you to run a piece of Python code that will convert and format a CSV properly for usage by the #SCAN CSV LINE functionality in TinTin.
 
-In-game, formatting is critical to getting a proper match.
-Syntax:
+In-game, formatting is critical to getting a proper match.<br>
+Syntax:<br>
 id "name of object"
 
-Example:
-id "a magical beam of light"
-Item:           a magical beam of light
-Type:           weapon
-Damage:         crit
-Affects:        dr+\, hr+
-Grants:         
-Location:       Soul Asylum\, soul of a high priest
+Example:<br>
+id "a magical beam of light"<br>
+Item:           a magical beam of light<br>
+Type:           weapon<br>
+Damage:         crit<br>
+Affects:        dr+\, hr+<br>
+Grants:         <br>
+Location:       Soul Asylum\, soul of a high priest<br>
 Other:          vorpal
 
 You'll notice the un-escaped commas, which are difficult to deal with in a comma-separated file. Right now it's a minor nuisance so I'll get around to optimizing in the future (see TODO).
