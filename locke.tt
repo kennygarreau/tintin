@@ -1,0 +1,67 @@
+#read common.tt
+
+#nop spells
+#alias {bh} {cast burning-hands %0}
+#alias {blink} {cast blink}
+#alias {blur} {cast blur %0}
+#alias {bolt} {cast force-bolt %0}
+#alias {dispel} {cast dispel-magic %0}
+#alias {drain} {cast energy-drain %0}
+#alias {fa} {cast free-action %0}
+#alias {fb} {cast fireball %0}
+#alias {grip} {cast crushing-grip %0}
+#alias {hand} {cast forceful}
+#alias {hf} {cast hellfire %0}
+#alias {hp} {cast hold-person %0}
+#alias {identify} {take crushed.glass $stor;drop crushed.glass;take flask.blood $stor;drop flask.blood;assemble;take incomprehensible.tome $stor;rem star;ho tome;cast identify %0;remove tome;wear star;put tome $stor}
+#alias {locate} {cast locate-object %0}
+#alias {meteor} {cast meteor %0}
+#alias {mirror} {take mirror $stor;rem star;ho mirror;cast mirror-image;rem mirror;wear star;put mirror $stor}
+#alias {mm} {cast magic-missile %0}
+#alias {shield} {cast shield %0}
+#alias {sil} {cast silence %0}
+#alias {str} {cast strength %0}
+
+#nop battle set
+#alias {batbody} {take protective.scales bag;remove rags.miso;wear protective.scales;put rags.miso bag}
+#alias {bathead} {take helm.dragons bag;remove silver.helmet;wear helm.dragons;put silver.helmet bag}
+#alias {batwrist} {take all.salydium.bracelet bag;rem sinister;rem bracer.energy;wear all.salydium.bracelet;put sinister bag;put bracer.energy bag}
+#alias {bathold} {take north.star bag;remove foundation;wear north.star;put foundation bag}
+#alias {batrobe} {take cloak.storm bag;remove purple.robes;wear cloak.storm;put purple.robes bag}
+#alias {batring} {take all.freeman bag;wear all.freeman;put all.ring bag}
+#alias {bathands} {take viridum bag;remove claws.shadow.phoenix;wear viridum;put claws bag}
+#alias {batbelt} {take salydium.belt bag;remove purple.sash;wear salydium.belt;put sash bag}
+#alias {bt} {bathold;batbody;bathead;batbelt;bathands;batring;batwrist}
+
+#nop mem set
+#alias {membody} {take rags.miso bag;remove protective.scales;wear rags.miso;put protective.scales bag}
+#alias {memhead} {take silver.helmet bag;remove helm.dragons;put helm.dragons bag;wear silver.helmet}
+#alias {memhold} {take foundation bag;remove north.star;hold foundation;put north.star bag}
+#alias {memrobe} {take purple.robes bag;remove cloak.storm;wear purple.robes;put cloak.storm bag}
+#alias {memwrist} {take sinister bag;take bracer.energy bag;remove all.salydium.bracelet;put all.salydium.bracelet bag;wear bracer.energy;wear sinister}
+#alias {memring} {take all.emerald bag;wear all.emerald;put all.ring bag}
+#alias {membelt} {take purple.sash bag;remove salydium.belt;wear purple.sash;put belt bag}
+#alias {memhands} {take claws.shadow.phoenix bag;remove viridum;wear claws;put viridum bag}
+#alias {mt} {memwrist;memring;memhold;memhands;membelt;memhead;membody}
+
+#alias {rc} {take yellow.runes purse;recite yellow.runes locke}
+
+#nop Mirror image handlers
+#variable {images} {0}
+#action {%1 shimmering images appear around you.} {#switch {"%1"} {#case {"Five"} {#var images 5};#case {"Four"} {#var images 4};#case {"Three"} {#var images 3};#case {"Two"} {#var images 2};#default #show something got missed: %1}}
+#action {^A mirror image of you flickers and dies.} {#if {$images > 0} {#math {images} {$images - 1}}}
+#action {^Your body blinks out of view momentarily.} {#var blink <510> BLINK! <099>}
+#action {^The effects of the blink spell wear off.}  {#var blink {}}
+#action {^You start glowing.} {#var sanc {<127> SANC <099>}}
+#action {^Your skin suddenly turns incredibly hard.} {#var stoneskin <105> STONESKIN <099>}
+#alias {resetmirror} {#var images 0}
+#prompt {<hp:%1} {<374>IMAGES:$images$blink$sanc$stoneskin<099> hp:%1} {} {}
+
+#nop Variables
+#variable {tank} {Torsilak}
+#variable {foodstor} {pouch}
+#variable {stor} {purse}
+#variable {this} {Locke}
+#variable {blink} {}
+#variable {sanc} {}
+#variable {stoneskin} {}

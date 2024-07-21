@@ -1,0 +1,100 @@
+#read common.tt
+ 
+#alias {rc} {take yellow.runes purse;recite yellow.runes fr}
+
+#nop looting
+#action {is dead} {take coins corpse;take all.gem corpse;put all.gem $gemstore;take all.jewel corpse;put all.jewel $gemstore}
+#action {has died} {take coins corpse;take all.gem corpse;put all.gem $gemstore}
+#variable {gemstore} {purse};
+
+#nop autotrack
+#action {^The trail of your quarry leads %0.} {gt Target: [$targ]  Direction: [%0]}
+#action {^Umm.. look around} {gt $targ is standing right here.;#var targ none}
+#action {^Your quarry is here before you!} {gt $targ is standing right here.;#var targ none}
+#action {^You lose the trail.} {#helt #show Lost the trail, re-trying...;tt} {5}
+#action {^You can't find the trail.} {#math gt Trail is gone.}
+#alias {tt} {track $targ}
+#alias {targ} {#var targ %0;tt}
+#variable {targ} {none}
+#variable {failcount} {0}
+
+#nop autorescue
+#alias {res1} {#var one %0}
+#alias {res2} {#var two %0}
+#alias {res3} {#var three %0}
+#alias {res4} {#var four %0}
+#alias {res5} {#var five %0}
+#alias {res6} {#var six %0}
+#alias {res7} {#var seven %0}
+#alias {res8} {#var eight %0}
+#alias {res9} {#var nine %0}
+#alias {resclist} {#var one %1;#var two %2;#var three %3;#var four %4;#var five %5;#var six %6;#var seven %7;#var eight %8;#var nine %9}
+#alias {resetlist} {#var one open;#var two open;#var three open;#var four open;#var five open;#var six open;#var seven open;#var eight open;#var nine open}
+#alias {rl} {gt Rescue List: $one|$two|$three|$four|$five|$six|$seven|$eight|$nine}
+#variable {one} {Helt}
+#variable {two} {open}
+#variable {three} {Petra}
+#variable {four} {open}
+#variable {five} {open}
+#variable {six} {open}
+#variable {seven} {open}
+#variable {eight} {open}
+#variable {nine} {open}
+#action {massacres $one with} {rescue $one}
+#action {$one extremely hard} {rescue $one}
+#action {$one very hard} {rescue $one}
+#action {$one hard} {rescue $one}
+#action {massacres $two with} {rescue $two}
+#action {$two extremely hard} {rescue $two}
+#action {$two very hard} {rescue $two}
+#action {$two hard} {rescue $two}
+#action {massacres $three with} {rescue $three}
+#action {$three extremely hard} {rescue $three}
+#action {$three very hard} {rescue $three}
+#action {$three hard} {rescue $three}
+#action {massacres $four with} {rescue $four}
+#action {$four extremely hard} {rescue $four}
+#action {$four very hard} {rescue $four}
+#action {$four hard} {rescue $four}
+#action {massacres $five with} {rescue $five}
+#action {$five extremely hard} {rescue $five}
+#action {$five very hard} {rescue $five}
+#action {$five hard} {rescue $five}
+#action {massacres $six with} {rescue $six}
+#action {$six extremely hard} {rescue $six}
+#action {$six very hard} {rescue $six}
+#action {$six hard} {rescue $six}
+#action {massacres $seven with} {rescue $seven}
+#action {$seven extremely hard} {rescue $seven}
+#action {$seven very hard} {rescue $seven}
+#action {$seven hard} {rescue $seven}
+#action {massacres $eight with} {rescue $eight}
+#action {$eight extremely hard} {rescue $eight}
+#action {$eight very hard} {rescue $eight}
+#action {$eight hard} {rescue $eight}
+#action {massacres $nine with} {rescue $nine}
+#action {$nine extremely hard} {rescue $nine}
+#action {$nine very hard} {rescue $nine}
+#action {$nine hard} {rescue $nine}
+
+#nop assess macros
+#alias {asse} {#feyd clearassess;#feyd testass %0;#feyd #100 assess %0;#feyd hgy;#feyd #action {Huh???} {#unaction {*Huh*};assessdone}}
+#alias {clearassess} {#var vl 0;#var l 0;#var mod 0;#var heavy 0;#var vh 0;#var min 0;#var nom 0;#var serdam 0;#var critd 0;#var massive 0;#var weap 0;#var armor 0}
+#alias {testass} {#action {Damage:} {#var weap 1;#unaction {Damage:};#unaction {Armor class:}} {4};#action {Armor class:} {#var armor 1;#unaction {Damage:};#unaction {Armor class:}} {4};assess %0}
+#alias {assessdone} {#if {$weap == 1} {assessweap};#if {$armor == 1} {assessarmor}}
+#alias {assessweap} {#all #show;#all #show Minimal: $min;#all #show Nominal: $nom;#all #show Serious: $serdam;#all #show Critical: $critd;#all #show Massive: $massive}
+#alias {assessarmor} {#all #show;#all #show Very light: $vl;#all #show Light: $l;#all #show Moderate: $mod;#all #show Heavy: $heavy;#all #show Very Heavy: $vh}
+#action {Armor class: very light} {#math {vl} {$vl+1}}
+#action {Armor class: light} {#math {l} {$l+1}}
+#action {Armor class: moderate} {#math {mod} {$mod+1}}
+#action {Armor class: heavy} {#math {heavy} {$heavy+1}}
+#action {Armor class: very heavy} {#math {vh} {$vh+1}}
+#action {Damage: minimal} {#math {min} {$min+1}}
+#action {Damage: nominal} {#math {nom} {$nom+1}}
+#action {Damage: serious} {#math {serdam} {$serdam+1}}
+#action {Damage: critical} {#math {critd} {$critd+1}}
+#action {Damage: massive} {#math {massive} {$massive+1}}
+
+#variable {this} {Feydrautha}
+#variable {foodstor} {purse}
+#variable {stor} {pouch}

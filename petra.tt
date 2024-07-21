@@ -1,0 +1,8 @@
+#read common.tt
+
+#alias {bs} {remove scimitar;wield dagger;backstab %0;remove dagger;wield scimitar}
+
+#variable {tank} {Torsilak}
+#variable {stor} {bag}
+#variable {this} {Petra}
+#variable {foodstor} {bag}

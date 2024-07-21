@@ -1,0 +1,193 @@
+#nop Common aliases for all characters
+#alias {arin} {#aringille %0}
+#alias {all} {#all %0}
+#alias {a} {#amergin %0}
+#alias {amer} {#session {amergin} {imperium.genesismuds.com} {40000} } 
+#alias {arin} {#session {aringille} {imperium.genesismuds.com} {40000} }
+#alias {ar} {#aringille %0}
+#alias {ass} {#all assist $tank}
+#alias {f} {#feyd %0}
+#alias {feyd} {#session {feyd} {imperium.genesismuds.com} {40000} }
+#alias {h} {#helt %0}
+#alias {helt} {#session {helt} {imperium.genesismuds.com} {40000} }
+#alias {kt} {#var kt %0;#action {You follow} {kill $kt}}
+#alias {locke} {#session {locke} {imperium.genesismuds.com} {40000} }
+#alias {m} {#locke %0}
+#alias {petra} {#session {petra} {imperium.genesismuds.com} {40000} }
+#alias {p} {#petra %0}
+#alias {repair} {remove %0;fix 1;wear 1}
+#alias {summon} {take holy.book $stor;remove star;hold holy.book;cast summon %0;remove holy.book;wear star;put holy.book $stor}
+#alias {tank} {#all #var tank %0}
+#alias {xpeval} {#if {"$lastxp" == "hopeless"} {#return};#else #helt #show $this felt $lastxp about his progress.}
+
+#nop id from file
+#event {SCAN CSV LINE} {
+    #if {"%1" == $idtarg} {
+        #variable {found_match} {1};
+        #variable {id_name} {%1};
+        #variable {id_type} {%2};
+        #variable {id_armorclass} {%3};
+        #variable {id_affects} {%4};
+        #variable {id_adds} {%5};
+        #variable {id_location} {%6};
+        #variable {id_other} {%7};
+        #variable {id_damage} {%8};
+        #variable {id_spells} {%9};
+        #send {tell me found a match}
+    };
+    #variable lastid %1;
+}
+#alias {load_id} {#scan {csv} {eqlist.csv}}
+#alias {id} {#var {idtarg} {%0};#scan {csv} {eqlist.csv}}
+#alias {id_header} {#show Item:\t\t$id_name;#show Type:\t\t$id_type;}
+#alias {id_footer} {#show Affects:\t$id_affects;#show Grants:\t\t$id_adds;#show Location:\t$id_location;#show Other:\t\t$id_other;#show {}}
+#alias {report_id} {
+    #switch {"$id_type"}
+        {#case {"weapon"} {id_header;#show Damage:\t\t$id_damage;id_footer};
+        #case {"scroll"} {id_header;#show Spells:\t\t$id_spells;id_footer};
+        #case {"staff"} {id_header;#show Spells:\t\t$id_spells;id_footer};
+        #case {"wand"} {id_header;#show Spells:\t\t$id_spells;id_footer};
+        #case {"potion"} {id_header;#show Spells:\t\t$id_spells;id_footer};
+        #default {id_header;#show Armor:\t\t$id_armorclass;id_footer}}
+}
+#substitute {nan$} {} {1}
+#action {^You try to tell yourself something.} {report_id} {5}
+#gag {^You try to tell yourself something.$}
+
+#nop tracker for "forgotten" spells in combat
+#variable {forgotten_spells} {""}
+#action {^You are not wise enough to remember the spell of '%1 %2'.$} {
+    #list {forgotten_spells} {add} {%1-%2}
+} {1}
+#action {^You are not wise enough to remember the spell of '%1'.$} {
+    #list {forgotten_spells} {add} {%1}
+} {2}
+
+#alias {rest} {#send {rest};#list {forgotten_spells} {collapse} {;};#if {$forgotten_spells === ""} {#showme No spells to be memorized.};#else #showme Re-Memorize Table:;#foreach {$forgotten_spells} {spell} {#showme $spell}}
+#alias {remem} {#foreach {$forgotten_spells} {spell} {#send {mem $spell}};#variable {forgotten_spells} {""}}
+
+#nop Common triggers
+#action {^%1 tells you '%2} {#show %1 told $this: %2} {5}
+#action {%1 whispers to you '%2} {#show %1 whispered to $this: %2} {5}
+#action {^You are thirsty.} {#2 drin water} {5}
+#action {^You are hungry.} {take bread $foodstor;eat bread} {5}
+#action {^Helt gives you some fresh waybread.} {put bread $foodstor} {5}
+#action {^It's empty already.} {#show $this is out of water} {5}
+#action {^You sense the magical armor wearing} {gt LOST M-V} {4}
+#action {begins to soften} {#var stoneskin {};gt LOST STONESKIN} {1}
+#action {^All the muscles in your body} {gt I've been Held.} {3}
+#action {^Thick webs leap out and cover you} {gt Webbed.} {3}
+#action {^The white aura around your body fades.} {#var sanc {};gt LOST SANC} {4}
+#action {^You feel a tug on your soul} {gt LOST MYST} {5}
+#action {knocks you down} {stand} {1}
+#action {You feel %1 about your progress.} {#var {lastxp} {%1};xpeval} {5}
+#action {There were %1 copper} {drop %1 copper coins} {5}
+#action {There were %1, and %2 copper coins.} {drop %2 copper coins} {4}
+#action {^You raise a level!} {say "Level!"} {5}
+#action {sends you sprawling.$} {stand} {1}
+
+#nop critical subs for potions/scrolls
+#action {^You quaff %0 which dissolves.$} {#ticker {potion_ticker} {#show <172>*** POTION COOLDOWN RESET! ***<099>} {75}}
+#action {POTION COOLDOWN RESET!} {#unticker {potion_ticker}}
+#action {^You recite %0 which dissolves.$} {#ticker {scroll_ticker} {#show <174>*** SCROLL COOLDOWN RESET! ***<099>} {75}}
+#action {SCROLL COOLDOWN RESET!} {#unticker {scroll_ticker}}
+#substitute {a smoking potion} {a smoking potion <171>[FIRESHIELD]<099>} {3}
+#substitute {a vial of mercury} {a vial of mercury [RECALL]} {3}
+#substitute {a yellow parchment with fine green runes} {a yellow parchment with fine green runes [RECALL]} {3}
+#substitute {a twisted oak staff} {a twisted oak staff [RECALL]} {3}
+#substitute {a staff of recall} {a staff of recall [RECALL]} {3}
+#substitute {a slender, frost-covered staff} {a slender, frost-covered staff [RECALL]} {3}
+#substitute {a teakwood lute} {a teakwood lute <102>[REFRESH]<099>} {3}
+#substitute {a crystalline staff} {a crystalline staff <102>[REFRESH]<099>} {3}
+#substitute {a golden flask} {a golden flask <172>[HEAL]<099>} {3}
+#substitute {a clear crystal staff} {a clear crystal staff <172>[HEAL]<099>} {3}
+#substitute {a divine white staff} {a divine white staff <172>[HEAL]<099>} {3}
+#substitute {a book on biology} {a book on biology <173>[HEALING LIGHT]<099>} {3}
+#substitute {an ornate silver box adorned with a sapphire} {an ornate silver box adorned with a sapphire <106>[MAJOR GLOBE]<099>} {3}
+#substitute {a pair of thick bifocals} {a pair of thick bifocals <105>[IDENTIFY]<099>} {3}
+#substitute {the supply officer's list of provisions} {the supply officer's list of provisions <105>[IDENTIFY]<099>} {3}
+#substitute {a misty potion} {a misty potion <174>[BLINK]<099>} {3}
+
+#nop progression subs
+#substitute {complete mastery/++} {98%} {1}
+#substitute {complete mastery/+} {95%} {3}
+#substitute {complete mastery} {93%} {5}
+#substitute {near mastery/++} {90%} {1}
+#substitute {near mastery/+} {88%} {3}
+#substitute {near mastery} {85%} {5}
+#substitute {lesser mastery/++} {83%} {1}
+#substitute {lesser mastery/+} {80%} {3}
+#substitute {lesser mastery} {78%} {5}
+#substitute {greater proficiency/++} {76%} {1}
+#substitute {greater proficiency/+} {74%} {3}
+#substitute {greater proficiency} {72%} {5}
+#substitute {moderate proficiency/++} {69%} {1}
+#substitute {moderate proficiency/+} {66%} {3}
+#substitute {moderate proficiency} {63%} {5}
+#substitute {primary proficiency/++} {60%} {1}
+#substitute {primary proficiency/+} {57%} {3}
+#substitute {primary proficiency} {54%} {5}
+#substitute {greater understanding/++} {51%} {1}
+#substitute {greater understanding/+} {48%} {3}
+#substitute {greater understanding} {45%} {5}
+#substitute {moderate understanding/++} {42%} {1}
+#substitute {moderate understanding/+} {39%} {3}
+#substitute {moderate understanding} {36%} {5}
+#substitute {primary understanding/++} {33%} {1}
+#substitute {primary understanding/+} {30%} {3}
+#substitute {primary understanding} {27%} {5}
+#substitute {greater progress/++} {24%} {1}
+#substitute {greater progress/+} {21%} {3}
+#substitute {greater progress} {18%} {5}
+#substitute {moderate progress/++} {15%} {1}
+#substitute {moderate progress/+} {12%} {3}
+#substitute {moderate progress} {9%} {5}
+#substitute {initial progress/++} {6%} {1}
+#substitute {initial progress/+} {3%} {3}
+#substitute {initial progress} {1%} {5}
+
+#nop gags and subs
+#gag {misses}
+#gag {Chains of lightning}
+#gag {chain lightning}
+#gag {cries out}
+#gag {ice storm blasts}
+#gag {is in mint condition%0$}
+#gag {the swarm engulfs}
+#gag {to store}
+#gag {^You don't even have to duck}
+#gag {makes a nice balletstep which}
+#substitute {the robe of the high priestess} {the robe of the high priestess $nosum}
+#substitute {a metal disc bearing the symbol of Ryes-Ridder} {a metal disc bearing the symbol of Ryes-Ridder $lev}
+#substitute {a glowing blue bracelet} {a glowing blue bracelet $int $wis $nosum}
+#substitute {the visionary helmet} {the visionary helmet $nosum $lev}
+#substitute {the cloak of the necromancer} {the cloak of the necromancer $lev}
+#substitute {a protective covering of black dragon scales} {a protective covering of black dragon scales $infra}
+#substitute {the helm of dragons} {the helm of dragons $infra $nosum}
+#substitute {a bracer of psychic energy} {a bracer of psychic energy $nosum}
+#substitute {a glowing crystal globe containing a howling wind} {a glowing crystal globe containing a howling wind $lev}
+#substitute {a pair of phase-shifting boots crackling with energy} {a pair of phase-shifting boots crackling with energy $nosum}
+#substitute {the protective embrace of the Eternals} {the protective embrace of the Eternals $recup $lev}
+#substitute {a leather strap} {a leather strap $nosum}
+#substitute {a refined silver bracer forged by the elven ancients} {a refined silver bracer forged by the elven ancients $nosum}
+#substitute {a suit of Dragoon's Armor} {a suit of Dragoon's Armor $nosum}
+#substitute {a pair of banded silver gauntlets} {a pair of banded silver gauntlets $nosum}
+#substitute {black obsidian arm plates} {black obsidian arm plates $nosum}
+#substitute {ghostly belt} {ghostly belt $lev}
+#substitute {goblin warboots} {goblin warboots $lev}
+#substitute {a set of fiery phoenix wings} {a set of fiery phoenix wings $lev}
+#substitute {the claws of a shadow phoenix} {the claws of a shadow phoenix $lev}
+#substitute {a set of glowing adamantite gauntlets} {a set of glowing adamantite gauntlets $infra}
+#substitute {the nothing cloak} {the nothing cloak $lev $nosum}
+
+#substitute {the water beast's tooth} {the water beast's tooth $boat}
+#substitute {a sea dragon's claw} {a sea dragon's claw $boat}
+
+#nop common variables
+#variable {tank} {Hurin}
+#variable {kt} {none}
+#variable {boat} {<174>[BOAT]<099>}
+#variable {nosum} {<fca>[NOSUM]<099>}
+#variable {lev} {<420>[LEV]<099>}
+#variable {recup} {<127>[RECUP]<099>}
+#variable {infra} {<171>[INFRA]<099>}

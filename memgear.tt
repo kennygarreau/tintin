@@ -1,0 +1,26 @@
+#nop subs for "common" memgear
+
+#substitute {the robe of the Golden Dragon} {the robe of the Golden Dragon $wis} {5}
+#substitute {a white marble breastplate} {a white marble breastplate $wis} {5}
+#substitute {a gold medallion} {a gold medallion $int} {5}
+#substitute {the phoenix talisman} {the phoenix talisman $int} {5}
+#substitute {a white ceremonial gown} {a white ceremonial gown $wis} {5}
+#substitute {a pair of golden glasses} {a pair of golden glasses $int} {5}
+#substitute {an ancient textbook} {an ancient textbook $int} {5}
+#substitute {a pair of crimson bands} {a pair of crimson bands $int} {5}
+#substitute {a swathe of threadbare purple robes} {a swathe of threadbare purple robes $int} {5}
+#substitute {a black belt embossed with silver} {a black belt embossed with silver $wis} {5}
+#substitute {a scorched silk tabard} {a scorched silk tabard $wis} {5}
+#substitute {a black velvet robe with silver runes} {a black velvet robe with silver runes $wis} {5}
+#substitute {a carved obsidian bracer} {a carved obsidian bracer $int} {5}
+#substitute {a dark emerald insignia ring} {a dark emerald insignia ring $int} {5}
+#substitute {an emerald wrist chain} {an emerald wrist chain $wis} {5}
+#substitute {a pair of obsidian bands} {a pair of obsidian bands $int} {5}
+#substitute {a silver ring of eternity} {a silver ring of eternity $int $wis} {5}
+#substitute {a bronze helm} {a bronze helm $int $wis} {5}
+#substitute {a silver cloak} {a silver cloak $int $wis} {5}
+#substitute {the rags of Miso} {the rags of Miso $int $int} {5}
+#substitute {a small emerald ring} {a small emerald ring $wis} {5}
+
+#variable {int} {<174>[INT]<099>}
+#variable {wis} {<175>[WIS]<099>}

@@ -1,0 +1,62 @@
+#read common.tt
+#read memgear.tt
+
+#nop spells
+#alias {bless} {cast bless %0}
+#alias {blind} {cast blind %0}
+#alias {cb} {cast cure-b %0}
+#alias {cf} {cast cr-f}
+#alias {cl} {cast cure-l %0}
+#alias {crit} {cast cure-c %0}
+#alias {curse} {cast curse %0}
+#alias {cw} {cast cr-w %0}
+#alias {dm} {cast disp-m %0}
+#alias {harm} {cast harm %0}
+#alias {heal} {cast heal %0}
+#alias {hl} {cast healing}
+#alias {identify} {take crushed.glass $stor;drop crushed.glass;take flask.blood $stor;drop flask.blood;assemble;take incomprehensible.tome $stor;rem star;ho tome;cast identify %0;remove tome;wear star;put tome $stor}
+#alias {portal} {#if {$nexus_gem_count >= $klein_bottle_count} {take nexus.gem pouch;rem star;ho nexus.gem;cast portal %0;wear star} {take klein.bottle pouch;rem star;ho klein.bottle;cast portal %0;wear star}}
+#alias {rc} {take yellow.runes purse;recite yellow.runes helt}
+#alias {sanc} {cast sanc %0}
+#alias {ser} {cast cure-s %0}
+#alias {sil} {cast silence %0}
+#alias {vest} {cast m-v %0}
+
+#nop battle set
+#alias {bheld} {rem foundation;put foundation $stor;wear north.star}
+#alias {bleg} {rem crimson.bands;wear leggings;put crimson.bands $stor}
+#alias {barm} {take arm $stor;rem crimson.bands;wear arm;put crimson.bands $stor}
+#alias {bneck} {take all.ryes $stor;rem all.silver.cloak;wear all.ryes;put all.silver.cloak $stor}
+#alias {bbelt} {take salydium.belt $stor;rem golden.belt;put golden.belt $stor;wear salydium.belt}
+#alias {bweap} {take beam $stor;rem silver.sword;wield beam;put silver.sword $stor}
+#alias {bring} {take all.death $stor;rem all.ring;wear all.death;put all.ring $stor}
+#alias {bwrist} {take all.white.bracer $stor;rem all.bracer.energy;wear all.white.bracer;put all.bracer.energy $stor}
+#alias {bhead} {take diadem $stor;rem helmet;wear diadem;put helmet $stor}
+#alias {bbody} {remove desperation;put desperation $stor;wear suit.armor}
+#alias {brobe} {take robe.priestess $stor;remove purple.robes;wear robe.priestess;put purple.robes $stor}
+#alias {bt} {brobe;bheld;bleg;barm;bneck;bweap;bbelt;bring;bwrist;bhead;bbody}
+
+#nop mem set 
+#alias {marm} {take crimson.bands $stor;rem arm;wear crimson.bands;put arm $stor}
+#alias {mbelt} {take golden.belt $stor;rem salydium.belt;wear golden.belt;put salydium.belt $stor}
+#alias {mhead} {take visionary $stor;rem diadem;wea visionary;put diadem $stor}
+#alias {mheld} {take foundation $stor;rem north.star;ho foundation}
+#alias {mleg} {take obsidian.bands $stor;rem leggings;wear obsidian.bands}
+#alias {mneck} {take all.silver.cloak $stor;rem all.ryes;wear all.silver.cloak;put all.ryes $stor}
+#alias {mring} {take all.mahogany $stor;rem all.death;put all.death $stor;wear all.mahogany}
+#alias {mweap} {take silver.sword $stor;rem beam;wield silver.sword;put beam $stor}
+#alias {mwrist} {take all.bracer.energy $stor;rem all.white.bracer;wear all.bracer.energy;put all.white.bracer $stor}
+#alias {mbody} {take desperation $stor;remove suit.armor;wear desperation}
+#alias {mrobe} {take purple.robes $stor;rem robe.priestess;wear purple.robes;put robe.priestess $stor}
+#alias {mt} {mhead;mwrist;mring;mbelt;mweap;mneck;marm;mleg;mheld;mrobe;mbody}
+
+#nop triggers
+#action {^[%1] a klein bottle} {#variable klein_bottle_count %1;#delay {1} #show Found $klein_bottle_count klein bottles}
+#action {^[%1] a nexus gem$} {#variable nexus_gem_count %1;#delay {1} #show Found $nexus_gem_count nexus gems}
+
+#variable {tank} {feydrautha}
+#variable {stor} {zane}
+#variable {this} {Helt}
+#variable {foodstor} {pack}
+#variable {nexus_gem_count} {0}
+#variable {klein_bottle_count} {0}
