@@ -28,9 +28,13 @@
 #alias {memhead} {take bronze.helm $stor;rem helmet;wear bronze.helm;put helmet $stor}
 #alias {batwrist} {take all.padded.sleeve $stor;rem all.glowing.blue;put all.glowing.blue $stor;wear all.padded.sleeve}
 #alias {memwrist} {take all.glowing.blue $stor;rem all.sleeve;put all.sleeve $stor;wear all.glowing.blue}
+#alias {batabout} {take red.green $stor;rem purple.robes;put purple.robes $stor;wear red.green}
+#alias {memabout} {take purple.robes $stor;rem red.green;wear purple.robes;put red.green $stor}
+#alias {batarm} {take golden.arm $stor;rem crimson.bands;wear golden.arm;put crimson.bands $stor}
+#alias {memarm} {take crimson.bands $stor;rem arm;put arm $stor;wear crimson.bands arms}
 
-#alias {bt} {batneck;batring;batbelt;bathead;batwrist;batbody}
-#alias {mt} {memneck;memwrist;memring;membelt;memhead;membody}
+#alias {bt} {batneck;batring;batbelt;bathead;batwrist;batarm;batabout;batbody}
+#alias {mt} {memneck;memwrist;memring;membelt;memhead;memarm;memabout;membody}
 
 #nop Triggers
 

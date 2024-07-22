@@ -107,6 +107,11 @@
 #substitute {a pair of thick bifocals} {a pair of thick bifocals <105>[IDENTIFY]<099>} {3}
 #substitute {the supply officer's list of provisions} {the supply officer's list of provisions <105>[IDENTIFY]<099>} {3}
 #substitute {a misty potion} {a misty potion <174>[BLINK]<099>} {3}
+#substitute {a cloudy potion} {a cloudy potion <571>BAD<099>} {2}
+#substitute {a dark brown potion} {a dark brown potion <571>BAD<099>} {2}
+#substitute {a dull green potion} {a dull green potion <571>BAD<099>} {2}
+#substitute {a purple flask} {a purple flask <571>BAD<099>} {2}
+#substitute {a vibrant magenta potion} {a vibrant magenta potion <571>BAD<099>} {2}
 
 #nop progression subs
 #substitute {complete mastery/++} {98%} {1}

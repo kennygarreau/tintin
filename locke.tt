@@ -50,6 +50,7 @@
 #variable {images} {0}
 #action {%1 shimmering images appear around you.} {#switch {"%1"} {#case {"Five"} {#var images 5};#case {"Four"} {#var images 4};#case {"Three"} {#var images 3};#case {"Two"} {#var images 2};#default #show something got missed: %1}}
 #action {^A mirror image of you flickers and dies.} {#if {$images > 0} {#math {images} {$images - 1}}}
+#action {shatters one of your mirror images.$} {#if {$images > 0} {#math {images} {$images - 1}}}
 #action {^Your body blinks out of view momentarily.} {#var blink <510> BLINK! <099>}
 #action {^The effects of the blink spell wear off.}  {#var blink {}}
 #action {^You start glowing.} {#var sanc {<127> SANC <099>}}

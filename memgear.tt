@@ -17,10 +17,11 @@
 #substitute {an emerald wrist chain} {an emerald wrist chain $wis} {5}
 #substitute {a pair of obsidian bands} {a pair of obsidian bands $int} {5}
 #substitute {a silver ring of eternity} {a silver ring of eternity $int $wis} {5}
-#substitute {a bronze helm} {a bronze helm $int $wis} {5}
+#substitute {a bronze helm$} {a bronze helm $int $wis} {5}
 #substitute {a silver cloak} {a silver cloak $int $wis} {5}
 #substitute {the rags of Miso} {the rags of Miso $int $int} {5}
 #substitute {a small emerald ring} {a small emerald ring $wis} {5}
+#substitute {purple robes} {purple robes $int $wis} {5}
 
 #variable {int} {<174>[INT]<099>}
 #variable {wis} {<175>[WIS]<099>}
