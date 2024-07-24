@@ -1,5 +1,3 @@
-#read buffs.tt
-
 #nop Common aliases for all characters
 #alias {arin} {#aringille %0}
 #alias {all} {#all %0}
@@ -185,7 +183,7 @@
 
 #nop Split format: TOP bar height, BOTTOM bar height, LEFT bar width, RIGHT bar width, INPUT BAR height
 #nop OSX screen size: 
-#split 4 3 27 96 3
+#split 4 3 32 64 3
 
 #nop common variables
 #variable {tank} {Hurin}

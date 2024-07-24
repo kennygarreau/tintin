@@ -9,13 +9,24 @@
 #action {^Your body gradually comes back into focus.} {#var blur {}}
 #action {^You feel a bit weaker.} {#var strength {}}
 #action {^The shield surrounding you dissipates.} {#var shield {}}
+#action {^The thorns on your skin disappear.} {#var thorns {}} {2}
+#action {^Your skin softens as the barkskin wears off.} {#var barkskin {}}
 
-#action {^You start glowing.} {#var sanc {<172>[SANC]<099>}}
-#action {^Your skin suddenly turns incredibly hard.} {#var stoneskin <fca>[STON]<099>}
-#action {^A faintly visible shield forms around you.} {#var shield <fd3a625>[SHLD]<099>}
-#action {^Your body becomes blurry and unfocused.} {#var blur <fd896ff>[BLUR]<099>}
+#action {^You start glowing.} {#var sanc {<172>[SAN]<099>}}
+#action {^A white aura surrounds your body.} {#var sanc {<172>[SAN]<099>}}
+#action {^Your skin suddenly turns incredibly hard.} {#var stoneskin <fca>[STO]<099>}
+#action {^Your skin is as hard as stone!} {#var stoneskin <fca>[STO]<099>}
+#action {^A faintly visible shield forms around you.} {#var shield <fd3a625>[SHL]<099>}
+#action {^A faint shield surrounds your body.} {#var shield <fd3a625>[SHL]<099>}
+#action {^Your body becomes blurry and unfocused.} {#var blur <fd896ff>[BLR]<099>}
 #action {^You feel stronger.} {#var strength <fc68642>[STR]<099>}
-#action {^You have been granted} {#var myst <f00c2c7>[MYST]<099>}
+#action {^You feel stronger than normal.} {#var strength <fc68642>[STR]<099>}
+#action {^You have been granted} {#var myst <f00c2c7>[MYS]<099>}
+#action {^You feel the spirit} {#var myst <f00c2c7>[MYS]<099>}
+#action {^You feel your skin begin to harden.} {#var vest <fffaaa5>[M-V]<099>}
+#action {^Thorns from your flesh cut through your skin.} {#var thorns <fae0001>[THR]<099>}
+#action {^Thorns are poking through your skin.} {#var thorns <fae0001>[THR]<099>}
+#action {^Your skin is as hard as the trunk of a tree.} {#var barkskin <fca>[BAR]<099>}
 
 #nop debuffs
 #action {sends you sprawling.$} {stand} {2}
@@ -23,7 +34,12 @@
 #action {^All the muscles in your body} {gt I've been Held.} {5}
 #action {^Thick webs leap out and cover you} {gt Webbed.} {7}
 #action {knocks you down} {stand} {2}
+#action {It appears that you have been poisoned.} {}
 
+#nop display
+#alias {buff_header} {#all #showme {<478><ff9f9f9>\t-- BUFFS --<099>} {46} {1}}
+
+#variable {barkskin} {}
 #variable {blur} {}
 #variable {myst} {}
 #variable {shield} {}
@@ -31,4 +47,5 @@
 #variable {stoneskin} {}
 #variable {strength} {}
 #variable {target_fallen} {}
+#variable {thorns} {}
 #variable {vest} {}

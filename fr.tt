@@ -1,5 +1,6 @@
 #read common.tt
- 
+#read buffs.tt
+
 #alias {rc} {take yellow.runes purse;recite yellow.runes fr}
 
 #nop looting
@@ -95,10 +96,13 @@
 #action {Damage: critical} {#math {critd} {$critd+1}}
 #action {Damage: massive} {#math {massive} {$massive+1}}
 
-#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fe0ac69><188>Feyd:<099>\t${$this.health}} {44} {1}} {1}
+#nop prompt and status
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fe0ac69><188>Feyd:<099>\t${$this.health}} {44} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {44} {1}}
+#alias {show_buffs} {buff_header;#all #showme {                          } {52} {1};#all #showme {<fe0ac69><188>F:<099> $blink$sanc$stoneskin$vest$barkskin$myst$thorns$blur$strength$shield} {52} {1} }
 
-
+#nop vars
 #variable {this} {Feydrautha}
 #variable {foodstor} {purse}
 #variable {stor} {pouch}
+#variable {blink} {}

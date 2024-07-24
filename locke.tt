@@ -1,4 +1,5 @@
 #read common.tt
+#read buffs.tt
 
 #nop spells
 #alias {bh} {cast burning-hands %0}
@@ -51,13 +52,14 @@
 #action {%1 shimmering images appear around you.} {#switch {"%1"} {#case {"Five"} {#var images 5};#case {"Four"} {#var images 4};#case {"Three"} {#var images 3};#case {"Two"} {#var images 2};#default #show something got missed: %1}}
 #action {^A mirror image of you flickers and dies.} {#if {$images > 0} {#math {images} {$images - 1}}}
 #action {shatters one of your mirror images.$} {#if {$images > 0} {#math {images} {$images - 1}}}
-#action {^Your body blinks out of view momentarily.} {#var blink <510> BLINK! <099>}
+#action {^Your body blinks out of view momentarily.} {#var blink <510>[BNK]<099>}
 #action {^The effects of the blink spell wear off.}  {#var blink {}}
 #alias {resetmirror} {#var images 0}
 
-#prompt {<hp:%1} {<374>IMAGES:$images$blink$sanc$stoneskin<099> hp:%1} {} {}
-#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fae0001><188>Locke:<099>\t${$this.health}} {41} {1}} {1}
+#nop #prompt {<hp:%1} {<374>IMAGES:$images$blink$sanc$stoneskin<099> hp:%1} {} {}
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fae0001><188>Locke<f8b9dc3>*$images:<099>${$this.health}} {41} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {41} {1}}
+#alias {show_buffs} {buff_header;#all #showme {                          } {49} {1};#all #showme {<fae0001><188>L:<099> $blink$sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {49} {1} }
 
 #nop Variables
 #variable {tank} {Torsilak}

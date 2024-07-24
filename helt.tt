@@ -1,5 +1,6 @@
 #read common.tt
 #read memgear.tt
+#read buffs.tt
 
 #nop spells
 #alias {bless} {cast bless %0}
@@ -22,7 +23,9 @@
 #alias {sil} {cast silence %0}
 #alias {vest} {cast m-v %0}
 
-#alias {staff} {;#ticker {staff_ticker} {#show <172>*** POTION COOLDOWN RESET! ***<099>} {75}}
+#nop alias/action for tracking staff usage
+#alias {staff} {take %1 $staffstor;rem star;ho %1;#ticker {staff_ticker} {#show <172>*** STAFF COOLDOWN RESET! ***<099>} {75};rem %1;wear star;put %1 $staffstor}
+#action {STAFF COOLDOWN RESET!} {#unticker {staff_ticker}}
 
 #nop battle set
 #alias {bheld} {rem foundation;put foundation $stor;wear north.star}
@@ -56,8 +59,10 @@
 #action {^[%1] a klein bottle} {#variable klein_bottle_count %1;#delay {1} #show Found $klein_bottle_count klein bottles}
 #action {^[%1] a nexus gem$} {#variable nexus_gem_count %1;#delay {1} #show Found $nexus_gem_count nexus gems}
 
-#action {<hp:%1 mv:%2>} {#all #var {$this.health} {%1};clear_health;#all #showme {<ff9f9f9><188>$this:<099>\t${$this.health}} {40} {1}} {1}
+#nop buffs and status
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<ff9f9f9><188>$this:<099>\t${$this.health}} {40} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {40} {1}}
+#alias {show_buffs} {buff_header;#all #showme {                          } {48} {1};#all #showme {<ff9f9f9><188>H: $sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {48} {1} }
 
 #prompt {<hp:%1 mv:%2>} {$target_fallen$sanc$stoneskin<099>\n<<ff9f9f9><188>$this:<099>${$this.health} <Fe0ac69><188>Feyd:<099>${Feydrautha.health} |
     <fae0001><188>Locke:<099>${Locke.health} |
@@ -71,5 +76,6 @@
 #variable {stor} {zane}
 #variable {this} {Helt}
 #variable {foodstor} {pack}
+#variable {staffstor} {pouch}
 #variable {nexus_gem_count} {0}
 #variable {klein_bottle_count} {0}

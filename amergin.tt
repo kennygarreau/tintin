@@ -1,5 +1,6 @@
 #read common.tt
 #read memgear.tt
+#read buffs.tt
 
 #nop Spells
 #alias {bs} {cast barkskin %0}
@@ -38,8 +39,9 @@
 #alias {mt} {memneck;memwrist;memring;membelt;memarm;memabout;membody;memhead}
 
 #nop Triggers
-#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<f77ab59><188>Amergin:<099>${$this.health}} {42} {1}} {1}
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<f77ab59><188>Amergin:<099>${$this.health}} {42} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {42} {1}}
+#alias {show_buffs} {buff_header;#all #showme {                          } {50} {1};#all #showme {<f77ab59><188>A: $sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {50} {1} }
 
 #nop Vars
 #variable {stor} {bag}
