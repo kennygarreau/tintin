@@ -4,6 +4,7 @@
 #nop Spells
 #alias {bs} {cast barkskin %0}
 #alias {berries} {cast goodberry}
+#alias {crit} {cast cure-crit %0}
 #alias {ff} {cast faerie-fire %0}
 #alias {ms} {cast mag-stone %0}
 #alias {myst} {cast myst %0}
@@ -14,8 +15,8 @@
 #alias {ww} {cast water-walk me}
 
 #nop mem gear
-#alias {batneck} {take eye $stor;take collar $stor;rem all.silver.cloak;put all.silver.cloak $stor;wear collar;wear eye}
-#alias {memneck} {take all.silver.cloak $stor;rem eye;put eye $stor;rem collar;wear all.silver.cloak;put collar $stor}
+#alias {batneck} {take all.tusk $stor;rem all.silver.cloak;put all.silver.cloak $stor;wear all.tusk}
+#alias {memneck} {take all.silver.cloak $stor;rem all.tusk;wear all.silver.cloak;put all.tusk $stor}
 #alias {batring} {take all.ring $stor;rem all.silver.eternity;put all.silver.eternity $stor;wear all.ring}
 #alias {memring} {take all.silver.eternity $stor;rem all.ring;wear all.eternity;put all.ring $stor}
 #alias {batwrist} {take all.padded.sleeve $stor;rem all.emerald.chain;put all.emerald.chain $stor;wear all.padded.sleeve}
@@ -33,10 +34,12 @@
 #alias {batarm} {take golden.arm $stor;rem crimson.bands;wear golden.arm;put crimson.bands $stor}
 #alias {memarm} {take crimson.bands $stor;rem arm;put arm $stor;wear crimson.bands arms}
 
-#alias {bt} {batneck;batring;batbelt;bathead;batwrist;batarm;batabout;batbody}
-#alias {mt} {memneck;memwrist;memring;membelt;memhead;memarm;memabout;membody}
+#alias {bt} {bathead;batneck;batring;batbelt;batwrist;batarm;batabout;batbody}
+#alias {mt} {memneck;memwrist;memring;membelt;memarm;memabout;membody;memhead}
 
 #nop Triggers
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<f77ab59><188>Amergin:<099>${$this.health}} {42} {1}} {1}
+#alias {clear_health} {#all #showme {                          } {42} {1}}
 
 #nop Vars
 #variable {stor} {bag}

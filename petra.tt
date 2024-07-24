@@ -1,6 +1,9 @@
 #read common.tt
 
 #alias {bs} {remove scimitar;wield dagger;backstab %0;remove dagger;wield scimitar}
+#alias {clear_health} {#all #showme {                          } {43} {1}}
+
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fd2d4dc><188>Petra:<099>\t${$this.health}} {43} {1}} {1}
 
 #variable {tank} {Torsilak}
 #variable {stor} {bag}

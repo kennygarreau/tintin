@@ -22,6 +22,8 @@
 #alias {sil} {cast silence %0}
 #alias {vest} {cast m-v %0}
 
+#alias {staff} {;#ticker {staff_ticker} {#show <172>*** POTION COOLDOWN RESET! ***<099>} {75}}
+
 #nop battle set
 #alias {bheld} {rem foundation;put foundation $stor;wear north.star}
 #alias {bleg} {rem crimson.bands;wear leggings;put crimson.bands $stor}
@@ -53,6 +55,17 @@
 #nop triggers
 #action {^[%1] a klein bottle} {#variable klein_bottle_count %1;#delay {1} #show Found $klein_bottle_count klein bottles}
 #action {^[%1] a nexus gem$} {#variable nexus_gem_count %1;#delay {1} #show Found $nexus_gem_count nexus gems}
+
+#action {<hp:%1 mv:%2>} {#all #var {$this.health} {%1};clear_health;#all #showme {<ff9f9f9><188>$this:<099>\t${$this.health}} {40} {1}} {1}
+#alias {clear_health} {#all #showme {                          } {40} {1}}
+
+#prompt {<hp:%1 mv:%2>} {$target_fallen$sanc$stoneskin<099>\n<<ff9f9f9><188>$this:<099>${$this.health} <Fe0ac69><188>Feyd:<099>${Feydrautha.health} |
+    <fae0001><188>Locke:<099>${Locke.health} |
+    <fd2d4dc><188>Petra:<099>${Petra.health} |
+    <f77ab59><188>Amergin:<099>${Amergin.health} mv:%2>} {} {}
+
+#nop this doesn't work on a prompt
+#nop #substitute {prime} {<f7bc043>prime<099>}
 
 #variable {tank} {feydrautha}
 #variable {stor} {zane}

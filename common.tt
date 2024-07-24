@@ -1,3 +1,5 @@
+#read buffs.tt
+
 #nop Common aliases for all characters
 #alias {arin} {#aringille %0}
 #alias {all} {#all %0}
@@ -67,32 +69,24 @@
 #alias {remem} {#foreach {$forgotten_spells} {spell} {#send {mem $spell}};#variable {forgotten_spells} {""}}
 
 #nop Common triggers
-#action {^%1 tells you '%2} {#show %1 told $this: %2} {5}
-#action {%1 whispers to you '%2} {#show %1 whispered to $this: %2} {5}
+#action {^%1 tells you '%2} {#helt #show %1 told $this: %2} {5}
+#action {%1 whispers to you '%2} {#helt #show %1 whispered to $this: %2} {5}
 #action {^You are thirsty.} {#2 drin water} {5}
 #action {^You are hungry.} {take bread $foodstor;eat bread} {5}
 #action {^Helt gives you some fresh waybread.} {put bread $foodstor} {5}
 #action {^It's empty already.} {#show $this is out of water} {5}
-#action {^You sense the magical armor wearing} {gt LOST M-V} {4}
-#action {begins to soften} {#var stoneskin {};gt LOST STONESKIN} {1}
-#action {^All the muscles in your body} {gt I've been Held.} {3}
-#action {^Thick webs leap out and cover you} {gt Webbed.} {3}
-#action {^The white aura around your body fades.} {#var sanc {};gt LOST SANC} {4}
-#action {^You feel a tug on your soul} {gt LOST MYST} {5}
-#action {knocks you down} {stand} {1}
-#action {You feel %1 about your progress.} {#var {lastxp} {%1};xpeval} {5}
+#action {You feel %1 about your progress.} {#var {target_fallen} {};#var {lastxp} {%1};xpeval} {5}
 #action {There were %1 copper} {drop %1 copper coins} {5}
 #action {There were %1, and %2 copper coins.} {drop %2 copper coins} {4}
 #action {^You raise a level!} {say "Level!"} {5}
-#action {sends you sprawling.$} {stand} {1}
 
 #nop critical subs for potions/scrolls
 #action {^You quaff %0 which dissolves.$} {#ticker {potion_ticker} {#show <172>*** POTION COOLDOWN RESET! ***<099>} {75}}
 #action {POTION COOLDOWN RESET!} {#unticker {potion_ticker}}
 #action {^You recite %0 which dissolves.$} {#ticker {scroll_ticker} {#show <174>*** SCROLL COOLDOWN RESET! ***<099>} {75}}
 #action {SCROLL COOLDOWN RESET!} {#unticker {scroll_ticker}}
-#substitute {a smoking potion} {a smoking potion <171>[FIRESHIELD]<099>} {3}
-#substitute {a vial of mercury} {a vial of mercury [RECALL]} {3}
+#substitute {a smoking potion} {a smoking potion <171>[FIRESHIELD]<099>} {10}
+#substitute {a vial of mercury} {a vial of mercury [RECALL]} {10}
 #substitute {a yellow parchment with fine green runes} {a yellow parchment with fine green runes [RECALL]} {3}
 #substitute {a twisted oak staff} {a twisted oak staff [RECALL]} {3}
 #substitute {a staff of recall} {a staff of recall [RECALL]} {3}
@@ -184,9 +178,14 @@
 #substitute {the claws of a shadow phoenix} {the claws of a shadow phoenix $lev}
 #substitute {a set of glowing adamantite gauntlets} {a set of glowing adamantite gauntlets $infra}
 #substitute {the nothing cloak} {the nothing cloak $lev $nosum}
+#substitute {a fiery neckband} {a fiery neckband <171>[FIRESHIELD]<099>}
 
 #substitute {the water beast's tooth} {the water beast's tooth $boat}
 #substitute {a sea dragon's claw} {a sea dragon's claw $boat}
+
+#nop Split format: TOP bar height, BOTTOM bar height, LEFT bar width, RIGHT bar width, INPUT BAR height
+#nop OSX screen size: 
+#split 4 3 27 96 3
 
 #nop common variables
 #variable {tank} {Hurin}

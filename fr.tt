@@ -95,6 +95,10 @@
 #action {Damage: critical} {#math {critd} {$critd+1}}
 #action {Damage: massive} {#math {massive} {$massive+1}}
 
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fe0ac69><188>Feyd:<099>\t${$this.health}} {44} {1}} {1}
+#alias {clear_health} {#all #showme {                          } {44} {1}}
+
+
 #variable {this} {Feydrautha}
 #variable {foodstor} {purse}
 #variable {stor} {pouch}

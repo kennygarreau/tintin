@@ -53,10 +53,11 @@
 #action {shatters one of your mirror images.$} {#if {$images > 0} {#math {images} {$images - 1}}}
 #action {^Your body blinks out of view momentarily.} {#var blink <510> BLINK! <099>}
 #action {^The effects of the blink spell wear off.}  {#var blink {}}
-#action {^You start glowing.} {#var sanc {<127> SANC <099>}}
-#action {^Your skin suddenly turns incredibly hard.} {#var stoneskin <105> STONESKIN <099>}
 #alias {resetmirror} {#var images 0}
+
 #prompt {<hp:%1} {<374>IMAGES:$images$blink$sanc$stoneskin<099> hp:%1} {} {}
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fae0001><188>Locke:<099>\t${$this.health}} {41} {1}} {1}
+#alias {clear_health} {#all #showme {                          } {41} {1}}
 
 #nop Variables
 #variable {tank} {Torsilak}
@@ -64,5 +65,3 @@
 #variable {stor} {purse}
 #variable {this} {Locke}
 #variable {blink} {}
-#variable {sanc} {}
-#variable {stoneskin} {}
