@@ -78,6 +78,9 @@
 #action {There were %1, and %2 copper coins.} {drop %2 copper coins} {4}
 #action {^You raise a level!} {say "Level!"} {5}
 
+#action {^You have %1 platinum} {#all #var {$this.plat} {%1}}
+#alias {get_plat} {#all coins;#math {total_plat} {${$this.plat} + ${Feydrautha.plat} + ${Petra.plat} + ${Amergin.plat} + ${Locke.plat}};#all #showme {Plat: $total_plat} {6} {-62} }
+
 #nop critical subs for potions/scrolls
 #action {^You quaff %0 which dissolves.$} {#ticker {potion_ticker} {#show <172>*** POTION COOLDOWN RESET! ***<099>} {75}}
 #action {POTION COOLDOWN RESET!} {#unticker {potion_ticker}}
