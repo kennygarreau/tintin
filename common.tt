@@ -66,6 +66,23 @@
 #alias {rest} {#send {rest};#list {forgotten_spells} {collapse} {;};#if {$forgotten_spells === ""} {#showme No spells to be memorized.};#else #showme Re-Memorize Table:;#foreach {$forgotten_spells} {spell} {#showme $spell}}
 #alias {remem} {#foreach {$forgotten_spells} {spell} {#send {mem $spell}};#variable {forgotten_spells} {""}}
 
+#nop #action {%.\(%s%1\)%ssanctuary} {#var {sanctuary.count} {%1} }
+#action {%.\(%s%1\)%sheal%s%.\(%s%2\)%ssanctuary} {#var {sanctuary.count} {%2};#var {heal.count} {%1} }
+#action {%.\(%s%1\)%shealing} {#var {healing-light.count} {%1} }
+#action {%.\(%s%1\)%scure%scritic} {#var {curecrit.count} {%1} }
+#action {%.\(%s%1\)%scure%sserious} {#var {cureser.count} {%1} }
+
+#nop #action { {\(\s*(\d+)\)\s*heal} } {#var {heal.count} {%0} }
+#nop #action { {\(\s*(\d+)\)\s*healing} } {#var {healing-light.count} {%0} }
+#nop #action { {\(\s*(\d+)\)\s*cure critic} } {#var {curecrit.count} {%0} }
+#nop #action { {\(\s*(\d+)\)\s*cure serious} } {#var {cureser.count} {%0} }
+
+
+#alias {show_major_spells} {
+    #variable {spell_status_line} {18};
+    mem;
+    #foreach {$major_spells} {major_spell} {#showme { ${$major_spell.count} $major_spell} {$spell_status_line} {-63};#math {spell_status_line} {$spell_status_line + 1};}}
+
 #nop Common triggers
 #action {^%1 tells you '%2} {#helt #show %1 told $this: %2} {5}
 #action {%1 whispers to you '%2} {#helt #show %1 whispered to $this: %2} {5}
@@ -79,7 +96,7 @@
 #action {^You raise a level!} {say "Level!"} {5}
 
 #action {^You have %1 platinum} {#all #var {$this.plat} {%1}}
-#alias {get_plat} {#all coins;#math {total_plat} {${$this.plat} + ${Feydrautha.plat} + ${Petra.plat} + ${Amergin.plat} + ${Locke.plat}};#all #showme {Plat: $total_plat} {6} {-62} }
+#alias {get_plat} {#all coins;#delay {1};#math {total_plat} {${$this.plat} + ${Feydrautha.plat} + ${Petra.plat} + ${Amergin.plat} + ${Locke.plat}};#all #showme {Plat: $total_plat} {6} {-62} }
 
 #nop critical subs for potions/scrolls
 #action {^You quaff %0 which dissolves.$} {#ticker {potion_ticker} {#show <172>*** POTION COOLDOWN RESET! ***<099>} {75}}
@@ -98,6 +115,7 @@
 #substitute {a clear crystal staff} {a clear crystal staff <172>[HEAL]<099>} {3}
 #substitute {a divine white staff} {a divine white staff <172>[HEAL]<099>} {3}
 #substitute {a book on biology} {a book on biology <173>[HEALING LIGHT]<099>} {3}
+#substitute {the princely sceptre} {the princely sceptre <173>[HEALING LIGHT]<099>} {3}
 #substitute {an ornate silver box adorned with a sapphire} {an ornate silver box adorned with a sapphire <106>[MAJOR GLOBE]<099>} {3}
 #substitute {a pair of thick bifocals} {a pair of thick bifocals <105>[IDENTIFY]<099>} {3}
 #substitute {the supply officer's list of provisions} {the supply officer's list of provisions <105>[IDENTIFY]<099>} {3}
@@ -186,10 +204,10 @@
 
 #nop Split format: TOP bar height, BOTTOM bar height, LEFT bar width, RIGHT bar width, INPUT BAR height
 #nop OSX screen size: 
-#split 4 3 32 64 3
+#split 4 3 34 64 3
 
 #nop common variables
-#variable {tank} {Hurin}
+#variable {tank} {feydrautha}
 #variable {kt} {none}
 #variable {boat} {<174>[BOAT]<099>}
 #variable {nosum} {<fca>[NOSUM]<099>}

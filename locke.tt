@@ -6,6 +6,7 @@
 #alias {blink} {cast blink}
 #alias {blur} {cast blur %0}
 #alias {bolt} {cast force-bolt %0}
+#alias {crip} {cast cripple %0}
 #alias {dispel} {cast dispel-magic %0}
 #alias {drain} {cast energy-drain %0}
 #alias {fa} {cast free-action %0}
@@ -59,11 +60,14 @@
 #nop #prompt {<hp:%1} {<374>IMAGES:$images$blink$sanc$stoneskin<099> hp:%1} {} {}
 #action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fae0001><188>Locke<f8b9dc3>*$images:<099>${$this.health}} {41} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {41} {1}}
-#alias {show_buffs} {buff_header;#all #showme {                          } {49} {1};#all #showme {<fae0001><188>L:<099> $blink$sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {49} {1} }
+#alias {show_buffs} {buff_header;#all #showme {                            } {49} {1};#all #showme {<fae0001><188>L:<099> $blink$sanc$stoneskin$grip$hand$vest$myst$thorns$blur$strength$shield} {49} {1} }
 
 #nop Variables
+#variable {debuff_line} {31}
 #variable {tank} {Torsilak}
 #variable {foodstor} {pouch}
 #variable {stor} {purse}
 #variable {this} {Locke}
 #variable {blink} {}
+#variable {grip} {}
+#variable {hand} {}

@@ -33,9 +33,9 @@
 #alias {resetlist} {#var one open;#var two open;#var three open;#var four open;#var five open;#var six open;#var seven open;#var eight open;#var nine open}
 #alias {rl} {gt Rescue List: $one|$two|$three|$four|$five|$six|$seven|$eight|$nine}
 #variable {one} {Helt}
-#variable {two} {open}
+#variable {two} {Locke}
 #variable {three} {Petra}
-#variable {four} {open}
+#variable {four} {Amergin}
 #variable {five} {open}
 #variable {six} {open}
 #variable {seven} {open}
@@ -99,9 +99,10 @@
 #nop prompt and status
 #action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fe0ac69><188>Feyd:<099>\t${$this.health}} {44} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {44} {1}}
-#alias {show_buffs} {buff_header;#all #showme {                          } {52} {1};#all #showme {<fe0ac69><188>F:<099> $blink$sanc$stoneskin$vest$barkskin$myst$thorns$blur$strength$shield} {52} {1} }
+#alias {show_buffs} {buff_header;#all #showme {                                     } {52} {1};#all #showme {<fe0ac69><188>F:<099> $blink$sanc$stoneskin$vest$barkskin$myst$thorns$blur$strength$shield} {52} {1} }
 
 #nop vars
+#variable {debuff_line} {34}
 #variable {this} {Feydrautha}
 #variable {foodstor} {purse}
 #variable {stor} {pouch}

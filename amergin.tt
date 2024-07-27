@@ -21,8 +21,8 @@
 #nop mem gear
 #alias {batneck} {take all.tusk $stor;rem all.silver.cloak;put all.silver.cloak $stor;wear all.tusk}
 #alias {memneck} {take all.silver.cloak $stor;rem all.tusk;wear all.silver.cloak;put all.tusk $stor}
-#alias {batring} {take all.ring $stor;rem all.silver.eternity;put all.silver.eternity $stor;wear all.ring}
-#alias {memring} {take all.silver.eternity $stor;rem all.ring;wear all.eternity;put all.ring $stor}
+#alias {batring} {take all.freeman $stor;rem all.silver.eternity;put all.silver.eternity $stor;wear all.freeman}
+#alias {memring} {take all.silver.eternity $stor;rem all.freeman;wear all.eternity;put all.freeman $stor}
 #alias {batwrist} {take all.padded.sleeve $stor;rem all.emerald.chain;put all.emerald.chain $stor;wear all.padded.sleeve}
 #alias {memwrist} {take all.emerald.chain $stor;rem all.padded.sleeve;put all.padded.sleeve $stor;wear all.emerald.chain}
 #alias {batbody} {rem silk.tabard;put tabard $stor;wear hide}
@@ -44,9 +44,10 @@
 #nop Triggers
 #action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<f77ab59><188>Amergin:<099>${$this.health}} {42} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {42} {1}}
-#alias {show_buffs} {buff_header;#all #showme {                          } {50} {1};#all #showme {<f77ab59><188>A: $sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {50} {1} }
+#alias {show_buffs} {buff_header;#all #showme {                            } {50} {1};#all #showme {<f77ab59><188>A: $sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {50} {1} }
 
 #nop Vars
+#variable {debuff_line} {32}
 #variable {stor} {bag}
 #variable {foodstor} {purse}
 #variable {this} {Amergin}

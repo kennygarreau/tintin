@@ -62,7 +62,7 @@
 #nop buffs and status
 #action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<ff9f9f9><188>$this:<099>\t${$this.health}} {40} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {40} {1}}
-#alias {show_buffs} {buff_header;#all #showme {                          } {48} {1};#all #showme {<ff9f9f9><188>H: $sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {48} {1} }
+#alias {show_buffs} {group_buff_header;buff_header;#all #showme {                            } {48} {1};#all #showme {<ff9f9f9><188>H: $sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {48} {1} }
 
 #prompt {<hp:%1 mv:%2>} {$target_fallen$sanc$stoneskin<099>\n<<ff9f9f9><188>$this:<099>${$this.health} <Fe0ac69><188>Feyd:<099>${Feydrautha.health} |
     <fae0001><188>Locke:<099>${Locke.health} |
@@ -72,10 +72,12 @@
 #nop this doesn't work on a prompt
 #nop #substitute {prime} {<f7bc043>prime<099>}
 
-#variable {tank} {feydrautha}
+#variable {debuff_line} {30}
+#variable {major_spells} {{heal}{healing-light}{curecrit}{cureser}{sanctuary}}
 #variable {stor} {zane}
 #variable {this} {Helt}
 #variable {foodstor} {pack}
 #variable {staffstor} {pouch}
 #variable {nexus_gem_count} {0}
 #variable {klein_bottle_count} {0}
+#variable {wrath} {}
