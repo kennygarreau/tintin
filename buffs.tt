@@ -1,6 +1,6 @@
 #nop buffs
-#action {%1 sweeps %0 falls to the ground.} {#var {target_fallen} {<fca>Downed! <099>}}
-#action {quickly clambers onto %0 feet.} {#var {target_fallen} {}}
+#action {%1 sweeps %0 falls to the ground.} {#var {target_fallen} {<fca>Target downed! <099>};#all #showme {$target_fallen} {28} {1}}
+#action {quickly clambers onto %0 feet.} {#var {target_fallen} {};#all #showme {                            } {28} {1}}
 
 #nop buff dispel/timeout
 #action {^The white aura around your body fades.} {#var sanc {};gt LOST SANC} {4}
@@ -63,14 +63,16 @@
 #action {^All the muscles in your body} {#var {debuff} {$this: Held};gt I've been Held.;register_debuff} {5}
 #action {^Thick webs leap out and cover you} {#var {debuff} {$this: Webbed};gt Webbed.;register_debuff} {7}
 #action {^You feel very sick.} {#var {debuff} {$this: Poison};register_debuff}
-#action {You have been blinded!} {#var {debuff} {$this: Blind};register_debuff}
+#action {^You have been blinded!} {#var {debuff} {$this: Blind};register_debuff}
 #action {^A sharp pain explodes in your head.} {#var {debuff} {$this: Mindwipe};register_debuff}
 #action {^You fall to the ground and clutch your legs.} {#var {debuff} {$this: Cripple};register_debuff}
+#action {^You feel weaker.} {#var {debuff} {$this: Weaken};register_debuff}
+#action {^You feel very uncomfortable.} {#var {debuff} {$this: Cursed};register_debuff}
 
 #nop display
 #alias {buff_header} {#showme {<478><ff9f9f9>-- BUFFS --<099>} {46} {1}}
 #alias {group_buff_header} {#if {"$wrath" != ""} {#all #showme {<378><ff9f9f9>GROUP BUFFS: $wrath<099>} {38} {1}} {#all #showme {                         } {38} {1}} }
-#alias {show_debuffs} {#if {"$debuff" != ""} {#all #showme {$debuff_message} {$debuff_line} {1}} {clear_debuffs} }
+#alias {show_debuffs} {#if {"$debuff" != ""} {#var {debuff_message} {    <171>*** $debuff ***<099>};#all #showme {$debuff_message} {$debuff_line} {1}} {clear_debuffs} }
 #alias {clear_debuffs} {#all #showme {                             } {$debuff_line} {1}}
 #alias {register_debuff} {show_debuffs;#ticker {debuff_ticker} {clear_debuffs;#unticker debuff_ticker} {10}}
 

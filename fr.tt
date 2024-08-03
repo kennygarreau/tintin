@@ -99,7 +99,7 @@
 #nop prompt and status
 #action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fe0ac69><188>Feyd:<099>\t${$this.health}} {44} {1};show_buffs} {1}
 #alias {clear_health} {#all #showme {                          } {44} {1}}
-#alias {show_buffs} {buff_header;#all #showme {                                     } {52} {1};#all #showme {<fe0ac69><188>F:<099> $blink$sanc$stoneskin$vest$barkskin$myst$thorns$blur$strength$shield} {52} {1} }
+#alias {show_buffs} {buff_header;#all #showme {                                 } {52} {1};#all #showme {<fe0ac69><188>F:<099> $blink$sanc$stoneskin$vest$barkskin$myst$thorns$blur$strength$shield} {52} {1} }
 
 #nop vars
 #variable {debuff_line} {34}

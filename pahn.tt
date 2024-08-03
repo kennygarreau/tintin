@@ -1,0 +1,15 @@
+#read common.tt
+#read buffs.tt
+
+#action {you topple over and fall to the ground.} {stand}
+#action {^Your bash at %0 sprawling.} {#var {target_fallen} {<fca>Downed! <099>}}
+
+#action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<fd2d4dc><188>Pahn:<099>\t${$this.health}} {43} {1};show_buffs} {1}
+#alias {clear_health} {#all #showme {                          } {43} {1}}
+#alias {show_buffs} {buff_header;#all #showme {                            } {51} {1};#all #showme {<fd2d4dc><188>P:<099> $sanc$stoneskin$vest$myst$thorns$blur$strength$shield} {51} {1} }
+
+#variable {debuff_line} {33}
+#variable {tank} {Torsilak}
+#variable {stor} {bag}
+#variable {this} {Pahn}
+#variable {foodstor} {bag}
