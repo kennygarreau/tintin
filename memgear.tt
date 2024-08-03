@@ -22,6 +22,7 @@
 #substitute {the rags of Miso} {the rags of Miso $int $int} {5}
 #substitute {a small emerald ring} {a small emerald ring $wis} {5}
 #substitute {purple robes} {purple robes $int $wis} {5}
+#substitute {a worn pair of beaded, caribou-hide boots} {a worn pair of beaded, caribou-hide boots $wis}
 
 #variable {int} {<174>[INT]<099>}
 #variable {wis} {<175>[WIS]<099>}

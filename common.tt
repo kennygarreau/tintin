@@ -179,7 +179,7 @@
 #substitute {the robe of the high priestess} {the robe of the high priestess $nosum}
 #substitute {a metal disc bearing the symbol of Ryes-Ridder} {a metal disc bearing the symbol of Ryes-Ridder $lev}
 #substitute {a glowing blue bracelet} {a glowing blue bracelet $int $wis $nosum}
-#substitute {the visionary helmet} {the visionary helmet $nosum $lev}
+#substitute {the visionary helmet} {the visionary helmet $int $wis $nosum $lev}
 #substitute {the cloak of the necromancer} {the cloak of the necromancer $lev}
 #substitute {a protective covering of black dragon scales} {a protective covering of black dragon scales $infra}
 #substitute {the helm of dragons} {the helm of dragons $infra $nosum}
@@ -199,6 +199,7 @@
 #substitute {a set of glowing adamantite gauntlets} {a set of glowing adamantite gauntlets $infra}
 #substitute {the nothing cloak} {the nothing cloak $lev $nosum}
 #substitute {a fiery neckband} {a fiery neckband <171>[FIRESHIELD]<099>}
+#substitute {a pair of severed dragon wings} {a pair of severed dragon wings $lev}
 
 #substitute {the water beast's tooth} {the water beast's tooth $boat}
 #substitute {a sea dragon's claw} {a sea dragon's claw $boat}

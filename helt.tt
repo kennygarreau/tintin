@@ -24,7 +24,7 @@
 #alias {vest} {cast m-v %0}
 
 #nop alias/action for tracking staff usage
-#alias {staff} {take %1 $staffstor;rem star;ho %1;#ticker {staff_ticker} {#show <172>*** STAFF COOLDOWN RESET! ***<099>} {75};rem %1;wear star;put %1 $staffstor}
+#alias {staff} {take %1 $staffstor;rem star;ho %1;use %1;#ticker {staff_ticker} {#show <172>*** STAFF COOLDOWN RESET! ***<099>} {75};rem %1;wear star;put %1 $staffstor}
 #action {STAFF COOLDOWN RESET!} {#unticker {staff_ticker}}
 
 #nop battle set

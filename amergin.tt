@@ -33,15 +33,17 @@
 #alias {memhead} {take bronze.helm $stor;rem helmet;wear bronze.helm;put helmet $stor}
 #alias {batwrist} {take all.padded.sleeve $stor;rem all.glowing.blue;put all.glowing.blue $stor;wear all.padded.sleeve}
 #alias {memwrist} {take all.glowing.blue $stor;rem all.sleeve;put all.sleeve $stor;wear all.glowing.blue}
-#alias {batabout} {take red.green $stor;rem purple.robes;put purple.robes $stor;wear red.green}
-#alias {memabout} {take purple.robes $stor;rem red.green;wear purple.robes;put red.green $stor}
+#alias {batabout} {take wings $stor;rem purple.robes;put purple.robes $stor;wear wings}
+#alias {memabout} {take purple.robes $stor;rem wings;wear purple.robes;put wings $stor}
 #alias {batarm} {take golden.arm $stor;rem crimson.bands;wear golden.arm;put crimson.bands $stor}
 #alias {memarm} {take crimson.bands $stor;rem arm;put arm $stor;wear crimson.bands arms}
 #alias {batleg} {rem obsidian.bands;wear leg;put obsidian.bands $stor}
 #alias {memleg} {take obsidian.bands $stor;rem leg;wear obsidian.bands leg}
+#alias {batfoot} {take boots $stor;rem caribou.boots;put caribou.boots $stor;wear boots}
+#alias {memfoot} {take caribou.boots $stor;rem boots;wear caribou.boots;put boots $stor}
 
-#alias {bt} {bathead;batneck;batring;batbelt;batwrist;batarm;batleg;batabout;batbody}
-#alias {mt} {memneck;memwrist;memring;membelt;memarm;memabout;memleg;membody;memhead}
+#alias {bt} {bathead;batneck;batring;batbelt;batwrist;batfoot;batarm;batleg;batabout;batbody}
+#alias {mt} {memneck;memwrist;memring;membelt;memarm;memfoot;memabout;memleg;membody;memhead}
 
 #nop Triggers
 #action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<f77ab59><188>Amergin:<099>${$this.health}} {42} {1};show_buffs} {1}
