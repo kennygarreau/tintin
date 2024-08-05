@@ -69,15 +69,9 @@
 
 #nop #action {%.\(%s%1\)%ssanctuary} {#var {sanctuary.count} {%1} }
 #action {%.\(%s%1\)%sheal%s%.\(%s%2\)%ssanctuary} {#var {sanctuary.count} {%2};#var {heal.count} {%1} }
+#action {%.\(%s%1\)%sdispel%smagic%s%.\(%s%2\)%scure%sserious} {#var {dispmag.count} {%1};#var {cureser.count} {%2} }
 #action {%.\(%s%1\)%shealing} {#var {healing-light.count} {%1} }
 #action {%.\(%s%1\)%scure%scritic} {#var {curecrit.count} {%1} }
-#action {%.\(%s%1\)%scure%sserious} {#var {cureser.count} {%1} }
-
-#nop #action { {\(\s*(\d+)\)\s*heal} } {#var {heal.count} {%0} }
-#nop #action { {\(\s*(\d+)\)\s*healing} } {#var {healing-light.count} {%0} }
-#nop #action { {\(\s*(\d+)\)\s*cure critic} } {#var {curecrit.count} {%0} }
-#nop #action { {\(\s*(\d+)\)\s*cure serious} } {#var {cureser.count} {%0} }
-
 
 #alias {show_major_spells} {
     #variable {spell_status_line} {18};
@@ -94,7 +88,8 @@
 #action {You feel %1 about your progress.} {#var {target_fallen} {};#var {lastxp} {%1};xpeval} {5}
 #action {There were %1 copper} {drop %1 copper coins} {5}
 #action {There were %1, and %2 copper coins.} {drop %2 copper coins} {4}
-#action {^You raise a level!} {say "Level!"} {5}
+#action {^You reflect on what you've learned about '%1'.} {#all #showme $this skill-up on %1} {8}
+#action {^You raise a level!} {say "Level!"} {8}
 
 #action {^You have %1 platinum} {#all #var {$this.plat} {%1}}
 #alias {get_plat} {#all coins;#delay {1};#math {total_plat} {${$this.plat} + ${Feydrautha.plat} + ${Petra.plat} + ${Pahn.plat} + ${Amergin.plat} + ${Locke.plat}};#all #showme {Plat: $total_plat} {6} {-62} }
