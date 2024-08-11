@@ -195,6 +195,15 @@
 #substitute {the nothing cloak} {the nothing cloak $lev $nosum}
 #substitute {a fiery neckband} {a fiery neckband <171>[FIRESHIELD]<099>}
 #substitute {a pair of severed dragon wings} {a pair of severed dragon wings $lev}
+#substitute {a set of emerald arm plates} {a set of emerald arm plates $nosum}
+#substitute {the shaman's staff} {the shaman's staff $nosum}
+#substitute {mystic white arm plates lined with silver} {mystic white arm plates lined with silver $nosum}
+#substitute {a ruby set in tarnished silver} {a ruby set in tarnished silver $nosum}
+#substitute {a bracer of denial} {a bracer of denial $nosum}
+#substitute {a pair of harpy wings} {a pair of harpy wings $nosum}
+#substitute {a pair of stiff golden arm plates} {a pair of stiff golden arm plates $nosum}
+#substitute {a pair of white serpent scale sleeves} {a pair of stiff golden arm plates $nosum}
+#substitute {a pair of boots marked with the wind rune} {a pair of boots marked with the wind rune $lev}
 
 #substitute {the water beast's tooth} {the water beast's tooth $boat}
 #substitute {a sea dragon's claw} {a sea dragon's claw $boat}

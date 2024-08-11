@@ -23,27 +23,25 @@
 #alias {memneck} {take all.silver.cloak $stor;rem all.tusk;wear all.silver.cloak;put all.tusk $stor}
 #alias {batring} {take all.freeman $stor;rem all.silver.eternity;put all.silver.eternity $stor;wear all.freeman}
 #alias {memring} {take all.silver.eternity $stor;rem all.freeman;wear all.eternity;put all.freeman $stor}
-#alias {batwrist} {take all.padded.sleeve $stor;rem all.emerald.chain;put all.emerald.chain $stor;wear all.padded.sleeve}
-#alias {memwrist} {take all.emerald.chain $stor;rem all.padded.sleeve;put all.padded.sleeve $stor;wear all.emerald.chain}
-#alias {batbody} {rem silk.tabard;put tabard $stor;wear hide}
-#alias {membody} {take silk.tabard $stor;rem hide;wear silk.tabard}
+#alias {batwrist} {take padded.sleeve $stor;take hydra $stor;rem all.glowing.blue;put all.glowing.blue $stor;wear padded.sleeve;wear hydra}
+#alias {memwrist} {take all.glowing.blue $stor;rem padded.sleeve;rem hydra;put hydra $stor;put padded.sleeve $stor;wear all.glowing.blue}
+#alias {batbody} {rem rags.miso;put miso $stor;wear emerald.breastplate}
+#alias {membody} {take rags.miso $stor;rem emerald.breastplate;wear rags.miso}
 #alias {batbelt} {take strap $stor;rem belt.silver;put belt $stor;wear strap waist}
 #alias {membelt} {take belt.silver $stor;rem strap;wear belt.silver;put strap $stor}
 #alias {bathead} {take ur-vile.helmet $stor;rem bronze.helm;put bronze.helm $stor;wear helmet}
 #alias {memhead} {take bronze.helm $stor;rem helmet;wear bronze.helm;put helmet $stor}
-#alias {batwrist} {take all.padded.sleeve $stor;rem all.glowing.blue;put all.glowing.blue $stor;wear all.padded.sleeve}
-#alias {memwrist} {take all.glowing.blue $stor;rem all.sleeve;put all.sleeve $stor;wear all.glowing.blue}
-#alias {batabout} {take wings $stor;rem purple.robes;put purple.robes $stor;wear wings}
-#alias {memabout} {take purple.robes $stor;rem wings;wear purple.robes;put wings $stor}
-#alias {batarm} {take golden.arm $stor;rem crimson.bands;wear golden.arm;put crimson.bands $stor}
+#alias {batabout} {take emerald.robe $stor;rem purple.robes;put purple.robes $stor;wear emerald.robe}
+#alias {memabout} {take purple.robes $stor;rem emerald.robe;wear purple.robes;put emerald.robe $stor}
+#alias {batarm} {take emerald.arm $stor;rem crimson.bands;wear emerald.arm;put crimson.bands $stor}
 #alias {memarm} {take crimson.bands $stor;rem arm;put arm $stor;wear crimson.bands arms}
 #alias {batleg} {rem obsidian.bands;wear leg;put obsidian.bands $stor}
 #alias {memleg} {take obsidian.bands $stor;rem leg;wear obsidian.bands leg}
-#alias {batfoot} {take boots $stor;rem caribou.boots;put caribou.boots $stor;wear boots}
-#alias {memfoot} {take caribou.boots $stor;rem boots;wear caribou.boots;put boots $stor}
+#alias {batfoot} {take boots.rune $stor;rem caribou.boots;put caribou.boots $stor;wear boots.rune}
+#alias {memfoot} {take caribou.boots $stor;rem boots.rune;wear caribou.boots;put boots.rune $stor}
 
-#alias {bt} {bathead;batneck;batring;batbelt;batwrist;batfoot;batarm;batleg;batabout;batbody}
-#alias {mt} {memneck;memwrist;memring;membelt;memarm;memfoot;memabout;memleg;membody;memhead}
+#alias {bt} {batarm;batneck;batring;batbelt;batwrist;batfoot;batleg;batabout;batbody}
+#alias {mt} {memneck;memwrist;memring;membelt;memarm;memfoot;memabout;memleg;membody}
 
 #nop Triggers
 #action {<hp:%1 mv:%2>} {#var {$this.health} {%1};clear_health;#all #showme {<f77ab59><188>Amergin:<099>${$this.health}} {42} {1};show_buffs} {1}

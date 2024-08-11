@@ -2,6 +2,10 @@
 #read buffs.tt
 
 #alias {rc} {take yellow.runes purse;recite yellow.runes fr}
+#action {massacres YOU with %0 pound} {disarm}
+#action {massacres YOU with %0 crush} {disarm}
+#action {pounds YOU} {disarm}
+#action {crushes YOU} {disarm}
 
 #nop looting
 #action {is dead} {take coins corpse;take all.gem corpse;put all.gem $gemstore;take all.jewel corpse;put all.jewel $gemstore}
