@@ -3,6 +3,7 @@
 
 #nop spells
 #alias {bh} {cast burning-hands %0}
+#alias {blind} {cast blind %0}
 #alias {blink} {cast blink}
 #alias {blur} {cast blur %0}
 #alias {bolt} {cast force-bolt %0}

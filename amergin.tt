@@ -7,8 +7,10 @@
 #alias {blind} {cast blind %0}
 #alias {bs} {cast barkskin %0}
 #alias {berries} {cast goodberry}
+#alias {cl} {cast cure-l %0}
 #alias {crit} {cast cure-crit %0}
 #alias {ff} {cast faerie-fire %0}
+#alias {gmb} {take mistletoe zane;rem globe;ho mistletoe;cast green-man;ho globe}
 #alias {ms} {cast mag-stone %0}
 #alias {myst} {cast myst %0}
 #alias {remp} {cast rem-p %0}
