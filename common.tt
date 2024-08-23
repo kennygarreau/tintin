@@ -89,6 +89,7 @@
 #action {There were %1 copper} {drop %1 copper coins} {5}
 #action {There were %1, and %2 copper coins.} {drop %2 copper coins} {4}
 #action {^You reflect on what you've learned about '%1'.} {#all #showme $this skill-up on %1} {8}
+#action {^You fumble %0} {}
 #action {^You raise a level!} {say "Level!"} {8}
 
 #action {^You have %1 platinum} {#all #var {$this.plat} {%1}}
