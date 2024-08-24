@@ -11,10 +11,12 @@
 #alias {crit} {cast cure-crit %0}
 #alias {ff} {cast faerie-fire %0}
 #alias {gmb} {take mistletoe zane;rem globe;ho mistletoe;cast green-man;ho globe}
+#alias {heal} {cast heal %0}
 #alias {ms} {cast mag-stone %0}
 #alias {myst} {cast myst %0}
 #alias {remp} {cast rem-p %0}
 #alias {refresh} {cast refresh %0}
+#alias {ser} {cast cure-ser %0}
 #alias {sil} {cast silence %0}
 #alias {stone} {cast stoneskin %0}
 #alias {thorn} {cast thornflesh %0}
