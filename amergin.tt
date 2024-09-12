@@ -27,12 +27,12 @@
 #alias {memneck} {take all.silver.cloak $stor;rem all.tusk;wear all.silver.cloak;put all.tusk $stor}
 #alias {batring} {take all.freeman $stor;rem all.silver.eternity;put all.silver.eternity $stor;wear all.freeman}
 #alias {memring} {take all.silver.eternity $stor;rem all.freeman;wear all.eternity;put all.freeman $stor}
-#alias {batwrist} {take padded.sleeve $stor;take hydra $stor;rem all.glowing.blue;put all.glowing.blue $stor;wear padded.sleeve;wear hydra}
-#alias {memwrist} {take all.glowing.blue $stor;rem padded.sleeve;rem hydra;put hydra $stor;put padded.sleeve $stor;wear all.glowing.blue}
+#alias {batwrist} {take all.hydra $stor;rem all.glowing.blue;put all.glowing.blue $stor;wear all.hydra}
+#alias {memwrist} {take all.glowing.blue $stor;rem all.hydra;put all.hydra $stor;wear all.glowing.blue}
 #alias {batbody} {rem rags.miso;put miso $stor;wear emerald.breastplate}
 #alias {membody} {take rags.miso $stor;rem emerald.breastplate;wear rags.miso}
-#alias {batbelt} {take strap $stor;rem belt.silver;put belt $stor;wear strap waist}
-#alias {membelt} {take belt.silver $stor;rem strap;wear belt.silver;put strap $stor}
+#alias {batbelt} {take girth $stor;rem belt.silver;put belt $stor;wear girth waist}
+#alias {membelt} {take belt.silver $stor;rem girth;wear belt.silver;put girth $stor}
 #alias {bathead} {take ur-vile.helmet $stor;rem bronze.helm;put bronze.helm $stor;wear helmet}
 #alias {memhead} {take bronze.helm $stor;rem helmet;wear bronze.helm;put helmet $stor}
 #alias {batabout} {take emerald.robe $stor;rem purple.robes;put purple.robes $stor;wear emerald.robe}
